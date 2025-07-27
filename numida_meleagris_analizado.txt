@@ -1,0 +1,40 @@
+# Primero se crea una carpeta donde se contienen los archivos del seguimiento 1
+mkdir -p ~/seguimiento_1
+
+# Ya con el archivo descargado, se muevbe al directorio recien creado y, luego ingresamos a el.
+mv Numida_meleagris.NumMel1.0.114.gff3.gz ~/seguimiento_1/
+cd ~/seguimiento_1
+
+# Se descomprime el archivo
+gunzip *.gff3.gz
+
+# Se listan los archivos de la carepta para confirmar el contenido, y que el archivo se encuentre descomprimido
+ls
+
+# Imprimimos las primeras lineas del archivo para ver su contenido y comenzar el analisis
+cat Numida_meleagris.NumMel1.0.114.gff3 | head -n 20
+
+# Como las primeras lineas son comentarios, se excluyen. Al empezar por "#", se usa el comando grep con flag -v para excluir las lineas que comienzan por "#", y se muestran las 10 primeras lineas
+cat Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | head -n 10
+
+# Ya que podemos ver las primeras 10 lineas sin comentarios, podemos analizar que en la tercera fila se contiene el tipo de feature al que pertenece cada secuencia en cada linea
+# Por lo cual, vamos a usar el siguiente comando para, cortando la fila 3 y excluyendo los comentarios, ver el recuento de features unicos organizados de mayor a menor, siendo agrupados y contados
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v #^#" | sort | uniq -c | sort -nr
+
+# Para concluir la primera pregunta, guardo un archivo con los resultados del conteo de features
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | sort | uniq -c | sort -nr > numida_features.txt
+
+# Para contar las regiones de la secuencia, se usa el comando cat para mostrar el archivo y luego el comando grep para filtrar todas las lineas que contengan "##sequence-region", finalmente contandolas con wc -l
+cat Numida_meleagris.NumMel1.0.114.gff3 | grep "^##sequence-region" | wc -l
+
+# Para confirmar la cantidad de genes que estan contenidos en el organismo se utiliza lo siguiente
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -wi "gene" | wc -l
+# cut -f3 para cortar por la fila 3, donde ya sabemos que se encuentran los features, grep -wi "gene" para filtrar por la palabra exacta gene ignorando mayusculas/minusculas y finalmente contando las lineas con wc -l
+
+# Para saber el top 10 de features mas utilizados se proponen dos opciones
+# Primera: teniendo el archivo anteriormente creado numida_features.txt, se muestra primero y luego se cuentan los 10 primeros
+cat numida_features.txt | head -n 10
+
+# Segunda: Sin tener el archivo, se corta por la columna 3, se excluyen los comenarios, se ordenan alfabeticamente los resultados, se agrupan y cuentan los resultados iguales, y se ordenan de mayor a menor. Finalmente se muestran unicamente los 10 primeros
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep "^#" | sort | uniq -c | sort -nr | head -n 10
+
