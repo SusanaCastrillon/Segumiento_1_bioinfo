@@ -36,5 +36,4 @@ cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -wi "gene" | wc -l
 cat numida_features.txt | head -n 10
 
 # Segunda: Sin tener el archivo, se corta por la columna 3, se excluyen los comenarios, se ordenan alfabeticamente los resultados, se agrupan y cuentan los resultados iguales, y se ordenan de mayor a menor. Finalmente se muestran unicamente los 10 primeros
-cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep "^#" | sort | uniq -c | sort -nr | head -n 10
-
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | sort | uniq -c | sort -nr | head -n 10
