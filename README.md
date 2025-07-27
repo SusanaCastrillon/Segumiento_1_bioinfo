@@ -13,9 +13,9 @@ Cada línea contiene las siguientes 9 columnas:
 8. Marco de lectura para el CDS si aplica
 9. Atributos como el ID del gen.
 ### Ejemplo: 
-- Un gen en la secuencia 2, que va desde la posición 35,680 hasta 46,893, en la hebra positiva con un ID gene 00002, nombre ABC1 y biotipo protein_coding se vería de la siguiente forma, con separador "/" en lugar de tab:
+- Un gen en la secuencia 2, que va desde la posición 35,680 hasta 46,893, en la hebra positiva con un ID gene 00002, nombre ABC1 y biotipo protein_coding se vería de la siguiente forma, con tab como separador:
   
-1/emsembl gene/35680/46893/./+/./ID=gene00002;Name=ABC1;biotype=protein_Coding
+2  emsembl gene  35680  46893  .  +  .  ID=gene00002;Name=ABC1;biotype=protein_Coding
 
 ## Descripción del organismo biológico
 Numida meleagris es comúnmente conocidad como al gallina de Guinea compun, es una especie de ave galliforme perteneceinete a la familia Numididae, esta es una ave terrestre que, aunque es capaz de volar con fuerza, prefiere correr (Oval et al., 2022). Se caracteriza por su plumaje gris oscuro salpicado de blanco, un cuerpo robusto y una cabeza desnuda con apéndices carnosos (Soara et al., 2020). La Gallina de Guinea es originaria de África subsaharina, y es la única ave domesticada originaria de esta región, que cuenta con una análisis genómico, que lo confirma (Shen et al., 2021). Es una especie apreciada no solo por su carne y huevos, que son cada vez más buscados por los conusmidores, sino también por sus valiosas características biológicas (ROSCA & Usturoi, 2018)(Georgina et al., 2020). 
