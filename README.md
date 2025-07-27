@@ -1,7 +1,7 @@
 # Segumiento_1_bioinfo
 
 ## Descripción del archivo
-Se tiene un archivo .gff3, llamado General Feature Format en su versión 3. Este es un archivo tabulado de texto plano que describe anotaciones de genómicas, cada línea representa entonces, una anotación de un elemento biológico sobre una secuencia genómica, por lo que se encontrarán genes, exones, regiones codificantes (CDS), mRNA, pseudogenes, entre otros.
+Se tiene un archivo .gff3, llamado General Feature Format en su versión 3. Este es un archivo tabulado de texto plano que describe anotaciones genómicas, cada línea representa entonces, una anotación de un elemento biológico sobre una secuencia genómica, por lo que se encontrarán genes, exones, regiones codificantes (CDS), mRNA, pseudogenes, entre otros.
 Cada línea contiene las siguientes 9 columnas: 
 1. Nombre de la secuencia
 2. Fuente de la anotación
