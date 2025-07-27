@@ -9,9 +9,12 @@ Cada línea contiene las siguientes 9 columnas:
 4. Posición de inicio del feature
 5. Posición final del feature
 6. Phred score o valor de confianza
-7. Sentido de la hebra (+ para sentido y - para antisentido)
-8. Marco de lectura para el CDS si aplica, 9. Atributos como el ID del gen.
-### Ejemplo: un gen en la secuencia 2, que va desde la posición 35,680 hasta 46,893, en la hebra positiva con un ID gene 00002, nombre ABC1 y biotipo protein_coding se vería de la siguiente forma, con separador "/" en lugar de tab:
+7. Sentido de la hebra (+ para sentido y, - para antisentido)
+8. Marco de lectura para el CDS si aplica
+9. Atributos como el ID del gen.
+### Ejemplo: 
+- Un gen en la secuencia 2, que va desde la posición 35,680 hasta 46,893, en la hebra positiva con un ID gene 00002, nombre ABC1 y biotipo protein_coding se vería de la siguiente forma, con separador "/" en lugar de tab:
+  
 1/emsembl gene/35680/46893/./+/./ID=gene00002;Name=ABC1;biotype=protein_Coding
 
 ## Descripción del organismo biológico
