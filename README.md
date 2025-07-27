@@ -22,18 +22,14 @@ Numida meleagris es comúnmente conocidad como al gallina de Guinea común, es u
 
 ## Análisis del archivo
 1. ¿Cuántos features contiene el archivo?
-
 - El archivo contiene 19 features unicos.
 <img width="793" height="57" alt="image" src="https://github.com/user-attachments/assets/78fcfff8-0079-4cf0-8f22-32a4c246eb1d" />
 
 2. ¿Cuántas regiones de la secuencia (cromosomas) contiene el archivo?
-
 - El archivo contiene 2466 líneas que indican regiones de la secuencia.
 <img width="727" height="124" alt="image" src="https://github.com/user-attachments/assets/e058b43b-4687-442f-a08e-afb8aa85b03a" />
-
 3. ¿Cuántos genes están listados en el organismo?
-
-Se listan 15661 genes, excluyendo pseudogenes y ncRNA genes. O 23258 incluyendolos.
+-Se listan 15661 genes, excluyendo pseudogenes y ncRNA genes. O 23258 incluyendolos.
 <img width="591" height="116" alt="image" src="https://github.com/user-attachments/assets/86359be3-4919-4023-ae1b-b27bb2aca254" />
 
 4. ¿Cuál es el top 10 de features (Columna 3) más anotados en el genoma?
