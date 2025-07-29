@@ -36,9 +36,18 @@ cat Numida_meleagris.NumMel1.0.114.gff3 | grep "^##sequence-region" | wc -l
 cut -f3 Numida_meleagris.NumMel1.0.144.gff3 | grep -v "^#" | grep -wi "region" | wc -l
 
 # Para confirmar la cantidad de genes que estan contenidos en el organismo se utiliza lo siguiente
-cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -wi "gene" | wc -l
-# cut -f3 para cortar por la columna 3, donde ya sabemos que se encuentran los features, grep -wi "gene" para filtrar por la palabra exacta gene ignorando
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | grep -wi "gene" | wc -l
+# cut -f3 para cortar por la columna 3, donde ya sabemos que se encuentran los features excluyendo los comentarios, grep -wi "gene" para filtrar por la palabra exacta gene ignorando
 # mayusculas/minusculas y finalmente contando las lineas con wc -l
+
+# Se usa también el mismo comando excluyendo el flag w para grep, esto para contar la cantidad de genes totales que hay en el organismo,
+# debido a que "gene" se refiere unicamente a los codificantes para proteinas, excluyendo los pseudogenes y los ncRNA que codifican para RNA.
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | grep -i "gene" | wc -l
+
+# Podemos confirmar la cantidad exacta de cada categoría génica modificando el comando anterior, el cual se conserva igual hasta el segundo
+# grep y, se le añade sort para organizarlos alfabéticamente, uniq -c contar los datos agrupados por categoría y sort -rn para organziarlos
+# de mayor a menor
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | grep -i "gene" | sort | uniq -c | sort -rn
 
 # Para saber el top 10 de features mas utilizados se proponen dos opciones
 # Primera: teniendo el archivo anteriormente creado numida_features.txt, se muestra este y luego se cuentan las 10 primeras lineas, que ya contienen los features 
