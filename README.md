@@ -30,8 +30,8 @@ Numida meleagris es comúnmente conocidad como al gallina de Guinea común, es u
 <img width="727" height="124" alt="image" src="https://github.com/user-attachments/assets/e058b43b-4687-442f-a08e-afb8aa85b03a" />
 
 3. ¿Cuántos genes están listados en el organismo?
-- Se listan 15661 genes, excluyendo pseudogenes y ncRNA genes.
-<img width="587" height="69" alt="image" src="https://github.com/user-attachments/assets/919e98cf-3abd-4ec6-9416-2d05a8a32afc" />
+- Se listan 15661 genes codificantes para proteínas, 23257 genes en general, incluyendo pseudogenes y genes de RNA. De estos últimos, hay 7507 genes de RNA y 89 pseudogenes.
+<img width="864" height="217" alt="image" src="https://github.com/user-attachments/assets/2a648836-3574-40db-a648-5d05c07d7578" />
 
 4. ¿Cuál es el top 10 de features (Columna 3) más anotados en el genoma?
 - Los 10 primeros lugares en orden descendente son: exón, CDS, biological_region, mRNA, gene, five_prime_UTR, lnc_RNA, three_primem_UTR, ncRNA_gene, region.
