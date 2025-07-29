@@ -14,26 +14,38 @@ ls
 # Imprimimos las primeras lineas del archivo para ver su contenido y comenzar el analisis
 cat Numida_meleagris.NumMel1.0.114.gff3 | head -n 20
 
-# Como las primeras lineas son comentarios, se excluyen. Al empezar por "#", se usa el comando grep con flag -v para excluir las lineas que comienzan por "#", y se muestran las 10 primeras lineas
+# Como las primeras lineas son comentarios, se excluyen. Al empezar por "#", se usa el comando grep con flag -v para excluir las lineas que comienzan por "#", y se
+# muestran las 10 primeras lineas
 cat Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | head -n 10
 
-# Ya que podemos ver las primeras 10 lineas sin comentarios, podemos analizar que en la tercera fila se contiene el tipo de feature al que pertenece cada secuencia en cada linea
-# Por lo cual, vamos a usar el siguiente comando para, cortando la fila 3 y excluyendo los comentarios, ver el recuento de features unicos organizados de mayor a menor, siendo agrupados y contados
-cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v #^#" | sort | uniq -c | sort -nr
+# Ya que podemos ver las primeras 10 lineas sin comentarios, podemos analizar que en la tercera columna se contiene el tipo de feature al que pertenece cada secuencia
+# en cada linea
+# Por lo cual, vamos a usar el siguiente comando para, cortando la columna 3 y excluyendo los comentarios, ver el recuento de features unicos organizados de mayor a
+# menor, siendo agrupados y contados, encontrando asi el numero de features unicos contenidos en el archivo
+cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v #^#" | sort | uniq -c | sort -nr | wc -l
 
-# Para concluir la primera pregunta, guardo un archivo con los resultados del conteo de features
+# Para concluir la primera pregunta, guardo un archivo con los resultados del conteo de lineas que contiene uno de los 19 fceatures unicos
 cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | sort | uniq -c | sort -nr > numida_features.txt
 
-# Para contar las regiones de la secuencia, se usa el comando cat para mostrar el archivo y luego el comando grep para filtrar todas las lineas que contengan "##sequence-region", finalmente contandolas con wc -l
+# Para contar las regiones de la secuencia, se usa el comando cat para mostrar el archivo y luego el comando grep para filtrar todas las lineas que contengan
+# "##sequence-region", finalmente contandolas con wc -l
 cat Numida_meleagris.NumMel1.0.114.gff3 | grep "^##sequence-region" | wc -l
+
+# Y puede confirmarse con el siguiente comando, que corta la columna 3, excluye los comentarios, busca por la palabra especifica region ignorando 
+# mayusculas/minusculas y contando la cantidad de lineas que la contienen
+cut -f3 Numida_meleagris.NumMel1.0.144.gff3 | grep -v "^#" | grep -wi "region" | wc -l
 
 # Para confirmar la cantidad de genes que estan contenidos en el organismo se utiliza lo siguiente
 cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -wi "gene" | wc -l
-# cut -f3 para cortar por la fila 3, donde ya sabemos que se encuentran los features, grep -wi "gene" para filtrar por la palabra exacta gene ignorando mayusculas/minusculas y finalmente contando las lineas con wc -l
+# cut -f3 para cortar por la columna 3, donde ya sabemos que se encuentran los features, grep -wi "gene" para filtrar por la palabra exacta gene ignorando
+# mayusculas/minusculas y finalmente contando las lineas con wc -l
 
 # Para saber el top 10 de features mas utilizados se proponen dos opciones
-# Primera: teniendo el archivo anteriormente creado numida_features.txt, se muestra primero y luego se cuentan los 10 primeros
+# Primera: teniendo el archivo anteriormente creado numida_features.txt, se muestra este y luego se cuentan las 10 primeras lineas, que ya contienen los features 
+# organizados de mayor a menor uso
 cat numida_features.txt | head -n 10
 
-# Segunda: Sin tener el archivo, se corta por la columna 3, se excluyen los comenarios, se ordenan alfabeticamente los resultados, se agrupan y cuentan los resultados iguales, y se ordenan de mayor a menor. Finalmente se muestran unicamente los 10 primeros
+# Segunda: Sin tener el archivo, se corta por la columna 3, se excluyen los comenarios, se ordenan alfabeticamente los resultados, se agrupan y cuentan los resultados
+# iguales, ordenandolos de mayor a menor. Finalmente se muestran unicamente los 10 primeros
 cut -f3 Numida_meleagris.NumMel1.0.114.gff3 | grep -v "^#" | sort | uniq -c | sort -nr | head -n 10
+
